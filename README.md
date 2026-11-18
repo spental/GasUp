@@ -2,11 +2,15 @@
 
 Gas Up v3 stores completed mileage trips in **your own Supabase project**, protected by Supabase authentication and Row Level Security (RLS). It is a static app that can run on GitHub Pages. No paid hosting is required for a small project, though Supabase usage limits may apply.
 
+## Project configuration
+
+This package is preconfigured for your Supabase project `ivszmjibgsythbdfegwd`. The SQL schema **has not been run automatically**: you must run `schema.sql` in the Supabase SQL Editor before trips will save. The project URL and publishable key are not proof of a working database connection; check login and a sample trip after deployment.
+
 ## Set up cloud storage
 
 1. Create a Supabase project at https://supabase.com/dashboard.
 2. In **SQL Editor**, paste and run the entire `schema.sql` file in this folder. (Run only once. The `create policy` commands are not repeatable.)
-3. Under **Project Settings > API** (exact menu can change), copy the **Project URL** and **publishable key** or legacy **anon key** into `config.js`. **Never use a service_role key or secret API key in browser code.**
+3. **Already done for this package:** `config.js` contains your supplied Supabase Project URL and publishable key. **Never use a service_role key or secret API key in browser code.**
 4. In **Authentication > Providers**, ensure Email authentication is enabled. Configure email confirmation and mail delivery for your deployment; Supabase's default email service has limitations.
 5. In **Authentication > URL Configuration**, set the Site URL to your final HTTPS app URL, e.g. `https://YOURNAME.github.io/gas-up/`. Add it to allowed redirect URLs for password reset/email confirmation. Configure custom SMTP for dependable production emails.
 6. Upload the contents of this folder (not the enclosing folder) to a GitHub repository; enable **Settings > Pages > Deploy from a branch** and choose your publishing branch/root. Access the resulting **HTTPS** GitHub Pages URL.
